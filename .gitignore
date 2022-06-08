@@ -1,1 +1,2 @@
 src/main/resources/apikey.properties
+target/classes/apikey.properties
