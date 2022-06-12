@@ -1,9 +1,8 @@
 package pl.michaldurlak.URLReputationChecker.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import pl.michaldurlak.URLReputationChecker.model.URLModel;
 import pl.michaldurlak.URLReputationChecker.service.IpqualityscoreService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,9 +18,5 @@ public class URLCheckController {
         return result;
     }
 
-    @GetMapping("/")
-    public String mainSite(){
-        return "index";
-    }
 
 }
