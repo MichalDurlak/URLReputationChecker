@@ -2,9 +2,20 @@ package pl.michaldurlak.URLReputationChecker.model;
 
 public class URLModel {
 
+    // GENERAL VALUES
     private String urlLink;
     private int urlGeneralScore;
+
+    // GENERAL VALUES FOR ipqualityscore
     private int ipqualityscoreScore;
+    private String isSecureByIpqualityscoreScore;
+    private String linkToResultFromIpqualityscoreScore;
+
+    // VALUES FOR NEXT SITE
+
+
+
+
 
 
     public String getUrlLink() {
@@ -31,6 +42,21 @@ public class URLModel {
         this.ipqualityscoreScore = ipqualityscoreScore;
     }
 
+    public String getIsSecureByIpqualityscoreScore() {
+        return isSecureByIpqualityscoreScore;
+    }
+
+    public void setIsSecureByIpqualityscoreScore(String isSecureByIpqualityscoreScore) {
+        this.isSecureByIpqualityscoreScore = isSecureByIpqualityscoreScore;
+    }
+
+    public String getLinkToResultFromIpqualityscoreScore() {
+        return linkToResultFromIpqualityscoreScore;
+    }
+
+    public void setLinkToResultFromIpqualityscoreScore(String linkToResultFromIpqualityscoreScore) {
+        this.linkToResultFromIpqualityscoreScore = linkToResultFromIpqualityscoreScore;
+    }
 
     @Override
     public String toString() {
@@ -38,6 +64,8 @@ public class URLModel {
                 "urlLink='" + urlLink + '\'' +
                 ", urlGeneralScore=" + urlGeneralScore +
                 ", ipqualityscoreScore=" + ipqualityscoreScore +
+                ", isSecureByIpqualityscoreScore='" + isSecureByIpqualityscoreScore + '\'' +
+                ", linkToResultFromIpqualityscoreScore='" + linkToResultFromIpqualityscoreScore + '\'' +
                 '}';
     }
 }

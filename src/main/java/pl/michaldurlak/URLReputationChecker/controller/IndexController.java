@@ -5,7 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.michaldurlak.URLReputationChecker.model.IpqualityscoreModel;
 import pl.michaldurlak.URLReputationChecker.model.URLModel;
+import pl.michaldurlak.URLReputationChecker.service.IpqualityscoreService;
+import pl.michaldurlak.URLReputationChecker.service.URLCheckService;
 
 import javax.print.DocFlavor;
 
@@ -18,9 +21,20 @@ public class IndexController {
         }
 
         @PostMapping("/")
-        public String getResultPage(@ModelAttribute("URLRequest") URLModel urlModel, Model model){
+        public String getResultPage(@ModelAttribute("URLRequest") URLModel urlModel,
+                                    IpqualityscoreModel ipqualityscoreModel,
+                                    Model model){
             model.addAttribute("urlModel",urlModel);
-            System.out.println(urlModel);
+            model.addAttribute("ipqualityscoreModel",ipqualityscoreModel);
+
+            // METHOD TO SET ALL VALUES FROM MODEL
+            URLCheckService.getAllReputation(urlModel, ipqualityscoreModel);
+
+
+            // PRINT RESULT FROM IPQUALITYSCORE SITE + PRINT RESULT OF IPQUALITYSCOREMODEL
+//            System.out.println(urlModel.getLinkToResultFromIpqualityscoreScore());
+//            System.out.println(ipqualityscoreModel);
+
             return "result";
         }
 
