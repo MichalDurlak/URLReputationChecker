@@ -6,7 +6,7 @@ public class URLModel {
     private String urlLink;
     private int urlGeneralScore;
 
-    // VALUES FOR ipqualityscore
+    // GENERAL VALUES FOR ipqualityscore
     private int ipqualityscoreScore;
     private String isSecureByIpqualityscoreScore;
     private String linkToResultFromIpqualityscoreScore;

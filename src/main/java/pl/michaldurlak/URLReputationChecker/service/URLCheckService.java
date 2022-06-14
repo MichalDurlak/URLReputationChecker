@@ -1,22 +1,25 @@
 package pl.michaldurlak.URLReputationChecker.service;
 
 import org.springframework.stereotype.Service;
+import pl.michaldurlak.URLReputationChecker.model.IpqualityscoreModel;
 import pl.michaldurlak.URLReputationChecker.model.URLModel;
 
 @Service
 public class URLCheckService {
 
-public static void getAllReputation(URLModel providedURL){
+public static void getAllReputation(URLModel providedURL, IpqualityscoreModel ipqualityscoreModel){
 
 //    IPQUALITYSCORE.COM
     IpqualityscoreService ipqualityscoreService = new IpqualityscoreService();
+
     // download once results for site
     providedURL.setLinkToResultFromIpqualityscoreScore(ipqualityscoreService.getFullResultOfProvidedSite(providedURL.getUrlLink()));
     // set score for site
     providedURL.setIpqualityscoreScore(ipqualityscoreService.getRiskScoreAndConvertToGeneralScore(providedURL.getLinkToResultFromIpqualityscoreScore()));
     // set value is safe or not
     providedURL.setIsSecureByIpqualityscoreScore(ipqualityscoreService.isSafeOrNot(providedURL.getIpqualityscoreScore()));
-
+    // set everything model ipqualityscore
+    ipqualityscoreService.setModelForIpqualityscoreModel(providedURL.getLinkToResultFromIpqualityscoreScore(),ipqualityscoreModel);
 
 
 

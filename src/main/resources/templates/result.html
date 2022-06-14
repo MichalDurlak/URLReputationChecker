@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
-  	<title>Table 07</title>
+  	<title>Results</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -10,6 +10,17 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="css/result_style.css">
+
+
+
+
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
 
 	</head>
 	<body>
@@ -39,16 +50,16 @@
 						    <tr>
 						      <th scope="row">1</th>
 								<td> <span th:utext="${urlModel.isSecureByIpqualityscoreScore}"> </span></td>
-						      <td>ipqualityscore.com</td>
+								<td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#myModal">ipqualityscore.com</button></td>
 								<td> <span th:utext="${urlModel.ipqualityscoreScore}"> </span>  pkt</td>
 						    </tr>
 <!--			-->
 <!--SECOND RECORD-->
 						    <tr>
 						      <th scope="row">2</th>
-						      <td>TEST</td>
+						      <td> 3 </td>
 						      <td>TEST.PL</td>
-						      <td> pkt</td>
+							  <td> pkt </td>
 						    </tr>
 <!--			-->
 <!--THIRD RECORD (SUM UP)-->
@@ -68,8 +79,57 @@
 <!--BUTTON TO RETURN TO INDEX SITE-->
 	<div class="col-md-12 text-center">
 		<a href="/" class="btn btn-secondary" role="button">Sprawdź kolejną stronę</a>
-<!--		<button type="button" class="btn btn-warning">Cancel</button>-->
+
+
+
+		<!-- Central Modal Medium -->
+
+
+		<!-- The Modal -->
+		<div class="modal" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Wyniki ze strony: <b>ipqualityscore.com</b></h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body">
+						Wiadomość -> <span th:utext="${ipqualityscoreModel.message}"> </span> <br/>
+						Sprawdzana domena -> <span th:utext="${ipqualityscoreModel.domain}"> </span> <br/>
+						Ip Address -> <span th:utext="${ipqualityscoreModel.ipAddress}"> </span> <br/>
+						Kategoria strony -> <span th:utext="${ipqualityscoreModel.category}"> </span> <br/>
+						Status odpowiedzi -> <span th:utext="${ipqualityscoreModel.statusCode}"> </span> <br/>
+						Punkty ryzyka -> <span th:utext="${ipqualityscoreModel.riskScore}"> </span> <br/>
+						isDnsValid -> <span th:utext="${ipqualityscoreModel.isDnsValid}"> </span> <br/>
+						isParking -> <span th:utext="${ipqualityscoreModel.isParking}"> </span> <br/>
+						isSpamming -> <span th:utext="${ipqualityscoreModel.isSpamming}"> </span> <br/>
+						isMalware -> <span th:utext="${ipqualityscoreModel.isMalware}"> </span> <br/>
+						isPhishing -> <span th:utext="${ipqualityscoreModel.isPhishing}"> </span> <br/>
+						isSuspicious -> <span th:utext="${ipqualityscoreModel.isSuspicious}"> </span> <br/>
+						isAdult -> <span th:utext="${ipqualityscoreModel.isAdult}"> </span> <br/>
+						isSuccess -> <span th:utext="${ipqualityscoreModel.isSuccess}"> </span> <br/>
+						isUnsafe -> <span th:utext="${ipqualityscoreModel.isUnsafe}"> </span> <br/>
+					</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Central Modal Medium -->
+
+
+
 	</div>
+
 	<!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<!-- JavaScript Bundle with Popper -->

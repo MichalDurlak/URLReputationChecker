@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pl.michaldurlak.URLReputationChecker.ReadSecrets;
+import pl.michaldurlak.URLReputationChecker.model.IpqualityscoreModel;
 import pl.michaldurlak.URLReputationChecker.model.URLModel;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -32,7 +33,7 @@ public class IpqualityscoreService {
         return riskScore;
     }
 
-    // SET IS THE SITE SEFE OR NOT
+    // SET IS THE SITE SAFE OR NOT
     public String isSafeOrNot(int ipqualityscoreScore){
         if(ipqualityscoreScore >= 45){
             return "BEZPIECZNA";
@@ -40,6 +41,35 @@ public class IpqualityscoreService {
             return "NIEBEZPIECZNA!!";
         }
     }
+
+    //SET ALL VALUES FOR IPQUALITYSCORE-MODEL
+    public void setModelForIpqualityscoreModel(String jsonResultFromSite, IpqualityscoreModel ipqualityscoreModel){
+        JSONObject jsonObject = new JSONObject(jsonResultFromSite);
+
+        ipqualityscoreModel.setMessage(jsonObject.getString("message"));
+        ipqualityscoreModel.setDomain(jsonObject.getString("domain"));
+        ipqualityscoreModel.setIpAddress(jsonObject.getString("ip_address"));
+        ipqualityscoreModel.setCategory(jsonObject.getString("category"));
+
+        ipqualityscoreModel.setStatusCode(jsonObject.getInt("status_code"));
+        ipqualityscoreModel.setStatusCode(jsonObject.getInt("risk_score"));
+
+        ipqualityscoreModel.setIsDnsValid(String.valueOf(jsonObject.getBoolean("dns_valid")));
+        ipqualityscoreModel.setIsAdult(String.valueOf(jsonObject.getBoolean("adult")));
+        ipqualityscoreModel.setIsParking(String.valueOf(jsonObject.getBoolean("parking")));
+        ipqualityscoreModel.setIsSpamming(String.valueOf(jsonObject.getBoolean("spamming")));
+        ipqualityscoreModel.setIsMalware(String.valueOf(jsonObject.getBoolean("malware")));
+        ipqualityscoreModel.setIsPhishing(String.valueOf(jsonObject.getBoolean("phishing")));
+
+        ipqualityscoreModel.setIsSuspicious(String.valueOf(jsonObject.getBoolean("suspicious")));
+        ipqualityscoreModel.setIsAdult(String.valueOf(jsonObject.getBoolean("adult")));
+        ipqualityscoreModel.setIsSuccess(String.valueOf(jsonObject.getBoolean("success")));
+        ipqualityscoreModel.setIsUnsafe(String.valueOf(jsonObject.getBoolean("unsafe")));
+
+        System.out.println(ipqualityscoreModel.toString());
+    }
+
+
 
 
 
