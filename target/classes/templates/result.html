@@ -98,21 +98,21 @@
 
 					<!-- Modal body -->
 					<div class="modal-body">
-						Wiadomość -> <span th:utext="${ipqualityscoreModel.message}"> </span> <br/>
-						Sprawdzana domena -> <span th:utext="${ipqualityscoreModel.domain}"> </span> <br/>
-						Ip Address -> <span th:utext="${ipqualityscoreModel.ipAddress}"> </span> <br/>
-						Kategoria strony -> <span th:utext="${ipqualityscoreModel.category}"> </span> <br/>
-						Status odpowiedzi -> <span th:utext="${ipqualityscoreModel.statusCode}"> </span> <br/>
-						Punkty ryzyka -> <span th:utext="${ipqualityscoreModel.riskScore}"> </span> <br/>
-						isDnsValid -> <span th:utext="${ipqualityscoreModel.isDnsValid}"> </span> <br/>
-						isParking -> <span th:utext="${ipqualityscoreModel.isParking}"> </span> <br/>
-						isSpamming -> <span th:utext="${ipqualityscoreModel.isSpamming}"> </span> <br/>
-						isMalware -> <span th:utext="${ipqualityscoreModel.isMalware}"> </span> <br/>
-						isPhishing -> <span th:utext="${ipqualityscoreModel.isPhishing}"> </span> <br/>
-						isSuspicious -> <span th:utext="${ipqualityscoreModel.isSuspicious}"> </span> <br/>
-						isAdult -> <span th:utext="${ipqualityscoreModel.isAdult}"> </span> <br/>
-						isSuccess -> <span th:utext="${ipqualityscoreModel.isSuccess}"> </span> <br/>
-						isUnsafe -> <span th:utext="${ipqualityscoreModel.isUnsafe}"> </span> <br/>
+<!--						Wiadomość -> <b><span th:utext="${ipqualityscoreModel.message}"> </span> </b> <br/>-->
+						Sprawdzana domena -> <b><span th:utext="${ipqualityscoreModel.domain}"> </span> </b> <br/>
+						Ip Address -> <b><span th:utext="${ipqualityscoreModel.ipAddress}"> </span> </b> <br/>
+						Kategoria strony -> <b><span th:utext="${ipqualityscoreModel.category}"> </span>  </b><br/>
+<!--						Status odpowiedzi -> <b><span th:utext="${ipqualityscoreModel.statusCode}"> </span> </b> <br/>-->
+						Punkty ryzyka -> <b><span th:utext="${ipqualityscoreModel.riskScore}"> </span> </b> <br/>
+						Czy strona posiada ważne rekordy DNS -> <b><span th:utext="${ipqualityscoreModel.isDnsValid}"> </span> </b> <br/>
+						Czy domena jest zaparkowana jako do sprzedania -> <b><span th:utext="${ipqualityscoreModel.isParking}"> </span> </b> <br/>
+						Czy strona powiązana jest ze spamem -> <b><span th:utext="${ipqualityscoreModel.isSpamming}"> </span> </b> <br/>
+						Czy strona powiązana jest z malware lub wirusami -> <b><span th:utext="${ipqualityscoreModel.isMalware}"> </span> </b> <br/>
+						Czy strona powiązana jest z wyłudzaniem danych -> <b><span th:utext="${ipqualityscoreModel.isPhishing}"> </span> </b> <br/>
+						Czy strona jest podejrzewana jako oszustwo -> <b><span th:utext="${ipqualityscoreModel.isSuspicious}"> </span> </b> <br/>
+						Czy strona zawiera treść dla dorosłych -> <b><span th:utext="${ipqualityscoreModel.isAdult}"> </span> </b> <br/>
+<!--						Czy zapytanie zostało poprawnie obsłużone -> <b><span th:utext="${ipqualityscoreModel.isSuccess}"> </span> </b> <br/>-->
+						Czy podejrzewa się, że ta domena jest niebezpieczna z powodu phishingu, złośliwego oprogramowania, spamowania lub nadużyć -> <b><span th:utext="${ipqualityscoreModel.isUnsafe}"> </span> </b> <br/>
 					</div>
 
 					<!-- Modal footer -->

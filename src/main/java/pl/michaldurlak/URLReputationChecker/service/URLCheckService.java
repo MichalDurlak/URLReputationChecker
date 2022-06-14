@@ -16,10 +16,10 @@ public static void getAllReputation(URLModel providedURL, IpqualityscoreModel ip
     providedURL.setLinkToResultFromIpqualityscoreScore(ipqualityscoreService.getFullResultOfProvidedSite(providedURL.getUrlLink()));
     // set score for site
     providedURL.setIpqualityscoreScore(ipqualityscoreService.getRiskScoreAndConvertToGeneralScore(providedURL.getLinkToResultFromIpqualityscoreScore()));
-    // set value is safe or not
-    providedURL.setIsSecureByIpqualityscoreScore(ipqualityscoreService.isSafeOrNot(providedURL.getIpqualityscoreScore()));
     // set everything model ipqualityscore
     ipqualityscoreService.setModelForIpqualityscoreModel(providedURL.getLinkToResultFromIpqualityscoreScore(),ipqualityscoreModel);
+    // set value is safe or not
+    providedURL.setIsSecureByIpqualityscoreScore(ipqualityscoreService.isSafeOrNot(ipqualityscoreModel.getRiskScore()));
 
 
 

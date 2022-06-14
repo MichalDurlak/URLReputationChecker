@@ -31,10 +31,9 @@ public class IndexController {
             URLCheckService.getAllReputation(urlModel, ipqualityscoreModel);
 
 
-            // PRINT RESULT FROM IPQUALITYSCORE SITE
+            // PRINT RESULT FROM IPQUALITYSCORE SITE + PRINT RESULT OF IPQUALITYSCOREMODEL
 //            System.out.println(urlModel.getLinkToResultFromIpqualityscoreScore());
-
-            System.out.println("XYZ -> " + ipqualityscoreModel);
+//            System.out.println(ipqualityscoreModel);
 
             return "result";
         }
