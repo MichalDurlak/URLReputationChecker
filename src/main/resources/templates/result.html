@@ -17,7 +17,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section"> Sprawdzana strona: <td th:text="${urlModel.urlLink}"> [Strona] </td> </h2>
+					<h2 class="heading-section"> Sprawdzana strona: <br/> <td th:text="${urlModel.urlLink}"> [Strona] </td> </h2>
 				</div>
 			</div>
 			<div class="row">
@@ -25,6 +25,7 @@
 					<div class="table-wrap">
 						<table class="table table-bordered table-dark table-hover">
 						  <thead>
+<!--HEADERS-->
 						    <tr>
 						      <th>#</th>
 						      <th>Czy bezpieczna</th>
@@ -32,24 +33,30 @@
 						      <th>Ilość punktów</th>
 						    </tr>
 						  </thead>
+<!--			-->
 						  <tbody>
+<!--FIRST RECORD-->
 						    <tr>
 						      <th scope="row">1</th>
-						      <td>NO/YES</td>
+								<td> <span th:utext="${urlModel.isSecureByIpqualityscoreScore}"> </span></td>
 						      <td>ipqualityscore.com</td>
 								<td> <span th:utext="${urlModel.ipqualityscoreScore}"> </span>  pkt</td>
 						    </tr>
+<!--			-->
+<!--SECOND RECORD-->
 						    <tr>
 						      <th scope="row">2</th>
 						      <td>TEST</td>
 						      <td>TEST.PL</td>
 						      <td> pkt</td>
 						    </tr>
+<!--			-->
+<!--THIRD RECORD (SUM UP)-->
 						    <tr>
 						      <th scope="row">3</th>
 								 <td colspan="3" class='summary'> ŚREDNIA ILOŚĆ PUNKTÓW: <span th:utext="${urlModel.urlGeneralScore}"> </span>  </td>
 						    </tr>
-
+<!--			-->
 						  </tbody>
 						</table>
 					</div>

@@ -10,13 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class URLCheckController {
 
-    @GetMapping("/check")
-    @ResponseBody
-    public String CheckURL(@RequestParam(required = true) String url, HttpServletRequest request){
-        IpqualityscoreService ipqualityscoreService = new IpqualityscoreService();
-        String result = ipqualityscoreService.getURLScore(url) + " \n" + request.getRemoteAddr();
-        return result;
-    }
+    // need to check if its used
+//    @GetMapping("/check")
+//    @ResponseBody
+//    public String CheckURL(@RequestParam(required = true) String url, HttpServletRequest request){
+//        IpqualityscoreService ipqualityscoreService = new IpqualityscoreService();
+//        String result = ipqualityscoreService.getURLScore(url) + " \n" + request.getRemoteAddr();
+//        return result;
+//    }
 
 
 }
