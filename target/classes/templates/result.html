@@ -57,9 +57,9 @@
 <!--SECOND RECORD-->
 						    <tr>
 						      <th scope="row">2</th>
-						      <td> 3 </td>
+								<td> <span th:utext="${virustotalModel.isSecureByVirustotal}"> </span></td>
 								<td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#virustotalModal">virustotal.com</button></td>
-							  <td> pkt </td>
+								<td> <span th:utext="${virustotalModel.virustotalScore}"> </span>  pkt</td>
 						    </tr>
 <!--			-->
 <!--THIRD RECORD (SUM UP)-->

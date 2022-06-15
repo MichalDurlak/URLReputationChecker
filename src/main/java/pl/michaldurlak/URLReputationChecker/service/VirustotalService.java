@@ -43,4 +43,21 @@ public class VirustotalService {
 
     }
 
+    public void setVirustotalScore(VirustotalModel virustotalModel) {
+        int finalScore = 100-((100*virustotalModel.getPositives())/virustotalModel.getTotalResults());
+        virustotalModel.setVirustotalScore(finalScore);
+    }
+
+    public void setIsSecureByVirustotalScore(VirustotalModel virustotalModel) {
+        int scoreVirustotal = virustotalModel.getVirustotalScore();
+
+        if(scoreVirustotal > 90 && scoreVirustotal <= 99){
+            virustotalModel.setIsSecureByVirustotal("WYSOKIE ZAGROŻENIE");
+        } else if(scoreVirustotal == 100){
+            virustotalModel.setIsSecureByVirustotal("BEZPIECZNA");
+        }else {
+            virustotalModel.setIsSecureByVirustotal("NIEBEZPIECZNA!!");
+        }
+
+    }
 }

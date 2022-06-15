@@ -12,6 +12,11 @@ public class VirustotalModel {
 
     private String resultsJSON;
 
+    private int virustotalScore;
+    private String isSecureByVirustotal;
+
+
+
 
     public String getUrl() {
         return url;
@@ -61,6 +66,22 @@ public class VirustotalModel {
         this.resultsJSON = resultsJSON;
     }
 
+    public int getVirustotalScore() {
+        return virustotalScore;
+    }
+
+    public void setVirustotalScore(int virustotalScore) {
+        this.virustotalScore = virustotalScore;
+    }
+
+    public String getIsSecureByVirustotal() {
+        return isSecureByVirustotal;
+    }
+
+    public void setIsSecureByVirustotal(String isSecureByVirustotal) {
+        this.isSecureByVirustotal = isSecureByVirustotal;
+    }
+
     @Override
     public String toString() {
         return "VirustotalModel{" +
@@ -69,6 +90,9 @@ public class VirustotalModel {
                 ", positives=" + positives +
                 ", totalResults=" + totalResults +
                 ", linkToResultsSite='" + linkToResultsSite + '\'' +
+                ", resultsJSON='" + resultsJSON + '\'' +
+                ", virustotalScore=" + virustotalScore +
+                ", isSecureByVirustotal='" + isSecureByVirustotal + '\'' +
                 '}';
     }
 }

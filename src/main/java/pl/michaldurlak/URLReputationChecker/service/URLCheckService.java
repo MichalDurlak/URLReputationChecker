@@ -31,15 +31,17 @@ public static void getAllReputation(URLModel providedURL, IpqualityscoreModel ip
     virustotalModel.setResultsJSON(virustotalService.getFullResultOfProvidedSite(providedURL.getUrlLink()));
     // set everything model ipqualityscore
     virustotalService.setModelForVirustotalModel(virustotalModel);
-
-
-
-
+    // set score for site
+    virustotalService.setVirustotalScore(virustotalModel);
+    //     private int virustotalScore;
+    // set value is safe or not
+    virustotalService.setIsSecureByVirustotalScore(virustotalModel);
+    //    private String isSecureByVirustotal;
 
 // SUM UP
     //    GET AVERAGE OF ALL SCORES
-    int sumAllScores = providedURL.getIpqualityscoreScore();
+    int sumAllScores = providedURL.getIpqualityscoreScore()+ virustotalModel.getVirustotalScore();
     // SET GENERAL SCORE
-    providedURL.setUrlGeneralScore(sumAllScores/1);
+    providedURL.setUrlGeneralScore(sumAllScores/2);
 }
 }
