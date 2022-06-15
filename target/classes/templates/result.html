@@ -50,16 +50,16 @@
 						    <tr>
 						      <th scope="row">1</th>
 								<td> <span th:utext="${urlModel.isSecureByIpqualityscoreScore}"> </span></td>
-								<td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#myModal">ipqualityscore.com</button></td>
+								<td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#ipqualityscoreModal">ipqualityscore.com</button></td>
 								<td> <span th:utext="${urlModel.ipqualityscoreScore}"> </span>  pkt</td>
 						    </tr>
 <!--			-->
 <!--SECOND RECORD-->
 						    <tr>
 						      <th scope="row">2</th>
-						      <td> 3 </td>
-						      <td>TEST.PL</td>
-							  <td> pkt </td>
+								<td> <span th:utext="${virustotalModel.isSecureByVirustotal}"> </span></td>
+								<td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#virustotalModal">virustotal.com</button></td>
+								<td> <span th:utext="${virustotalModel.virustotalScore}"> </span>  pkt</td>
 						    </tr>
 <!--			-->
 <!--THIRD RECORD (SUM UP)-->
@@ -82,11 +82,12 @@
 
 
 
+
 		<!-- Central Modal Medium -->
 
 
-		<!-- The Modal -->
-		<div class="modal" id="myModal">
+		<!-- Ipqualityscore.com MODAL -->
+		<div class="modal" id="ipqualityscoreModal">
 			<div class="modal-dialog">
 				<div class="modal-content">
 
@@ -123,9 +124,38 @@
 				</div>
 			</div>
 		</div>
-
 		<!-- Central Modal Medium -->
 
+
+		<!-- Virustotal.com MODAL -->
+		<div class="modal" id="virustotalModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Wyniki ze strony: <b>virustotal.com</b></h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body">
+
+						<a th:href="${virustotalModel.linkToResultsSite}"> Link do skanowania </a> <br/>
+						Wyników skanowania -> <b><span th:utext="${virustotalModel.totalResults}"> </span> </b> <br/>
+						Ilośc potencjalnie znalezionych problemów -> <b><span th:utext="${virustotalModel.positives}"> </span> </b> <br/>
+
+					</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- Central Modal Medium -->
 
 
 	</div>

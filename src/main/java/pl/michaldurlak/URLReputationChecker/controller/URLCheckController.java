@@ -4,19 +4,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.michaldurlak.URLReputationChecker.model.URLModel;
 import pl.michaldurlak.URLReputationChecker.service.IpqualityscoreService;
+import pl.michaldurlak.URLReputationChecker.service.VirustotalService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
-@Controller
+@RestController
 public class URLCheckController {
 
-    // need to check if its used
-//    @GetMapping("/check")
-//    @ResponseBody
-//    public String CheckURL(@RequestParam(required = true) String url, HttpServletRequest request){
-//        IpqualityscoreService ipqualityscoreService = new IpqualityscoreService();
-//        String result = ipqualityscoreService.getURLScore(url) + " \n" + request.getRemoteAddr();
-//        return result;
+    // virustotal test page
+
+//    @RequestMapping("/test")
+//    public String test() throws IOException {
+//        VirustotalService virustotalService = new VirustotalService();
+//        String valueTest = virustotalService.getFullResultOfProvidedSite().toString();
+//        return valueTest;
 //    }
 
 
