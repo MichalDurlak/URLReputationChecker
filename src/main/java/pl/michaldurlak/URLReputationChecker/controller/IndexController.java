@@ -5,12 +5,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import pl.michaldurlak.URLReputationChecker.model.IpqualityscoreModel;
 import pl.michaldurlak.URLReputationChecker.model.URLModel;
+import pl.michaldurlak.URLReputationChecker.model.VirustotalModel;
 import pl.michaldurlak.URLReputationChecker.service.IpqualityscoreService;
 import pl.michaldurlak.URLReputationChecker.service.URLCheckService;
+import pl.michaldurlak.URLReputationChecker.service.VirustotalService;
 
 import javax.print.DocFlavor;
+import java.io.IOException;
 
 @Controller
 public class IndexController {
@@ -23,12 +27,14 @@ public class IndexController {
         @PostMapping("/")
         public String getResultPage(@ModelAttribute("URLRequest") URLModel urlModel,
                                     IpqualityscoreModel ipqualityscoreModel,
-                                    Model model){
+                                    VirustotalModel virustotalModel,
+                                    Model model) throws IOException {
             model.addAttribute("urlModel",urlModel);
             model.addAttribute("ipqualityscoreModel",ipqualityscoreModel);
+            model.addAttribute("virustotalModel",virustotalModel);
 
             // METHOD TO SET ALL VALUES FROM MODEL
-            URLCheckService.getAllReputation(urlModel, ipqualityscoreModel);
+            URLCheckService.getAllReputation(urlModel, ipqualityscoreModel, virustotalModel);
 
 
             // PRINT RESULT FROM IPQUALITYSCORE SITE + PRINT RESULT OF IPQUALITYSCOREMODEL
@@ -37,6 +43,7 @@ public class IndexController {
 
             return "result";
         }
+
 
 
 }

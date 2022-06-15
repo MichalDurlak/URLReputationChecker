@@ -35,7 +35,7 @@ public class IpqualityscoreService {
 
     // SET IS THE SITE SAFE OR NOT
     public String isSafeOrNot(int ipqualityscoreScore){
-        System.out.println(ipqualityscoreScore);
+//        System.out.println(ipqualityscoreScore);
         if(ipqualityscoreScore >= 75 && ipqualityscoreScore < 85){
             return "PODEJRZANA";
         } else if(ipqualityscoreScore >= 85 && ipqualityscoreScore < 100){
