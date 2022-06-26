@@ -4,6 +4,7 @@ public class URLModel {
 
     // GENERAL VALUES
     private String urlLink;
+    private String prefixUrlLink;
     private int urlGeneralScore;
 
     // GENERAL VALUES FOR ipqualityscore
@@ -19,7 +20,7 @@ public class URLModel {
 
 
     public String getUrlLink() {
-        return urlLink;
+        return prefixUrlLink+urlLink;
     }
 
     public void setUrlLink(String urlLink) {
@@ -56,6 +57,14 @@ public class URLModel {
 
     public void setLinkToResultFromIpqualityscoreScore(String linkToResultFromIpqualityscoreScore) {
         this.linkToResultFromIpqualityscoreScore = linkToResultFromIpqualityscoreScore;
+    }
+
+    public String getPrefixUrlLink() {
+        return prefixUrlLink;
+    }
+
+    public void setPrefixUrlLink(String prefixUrlLink) {
+        this.prefixUrlLink = prefixUrlLink;
     }
 
     @Override

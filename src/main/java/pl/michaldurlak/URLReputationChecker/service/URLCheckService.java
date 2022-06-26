@@ -1,6 +1,7 @@
 package pl.michaldurlak.URLReputationChecker.service;
 
 import org.springframework.stereotype.Service;
+import pl.michaldurlak.URLReputationChecker.model.ExerraModel;
 import pl.michaldurlak.URLReputationChecker.model.IpqualityscoreModel;
 import pl.michaldurlak.URLReputationChecker.model.URLModel;
 import pl.michaldurlak.URLReputationChecker.model.VirustotalModel;
@@ -10,7 +11,9 @@ import java.io.IOException;
 @Service
 public class URLCheckService {
 
-public static void getAllReputation(URLModel providedURL, IpqualityscoreModel ipqualityscoreModel, VirustotalModel virustotalModel) throws IOException {
+public static void getAllReputation(URLModel providedURL, IpqualityscoreModel ipqualityscoreModel, VirustotalModel virustotalModel, ExerraModel exerraModel) throws IOException {
+
+
 
 //    IPQUALITYSCORE.COM
     IpqualityscoreService ipqualityscoreService = new IpqualityscoreService();
@@ -38,10 +41,17 @@ public static void getAllReputation(URLModel providedURL, IpqualityscoreModel ip
     virustotalService.setIsSecureByVirustotalScore(virustotalModel);
     //    private String isSecureByVirustotal;
 
+
+// EXERRA
+    ExerraService exerraService = new ExerraService();
+    // is provided url scam or not
+    exerraService.getResultExerra(providedURL.getUrlLink(),exerraModel);
+
+
 // SUM UP
     //    GET AVERAGE OF ALL SCORES
-    int sumAllScores = providedURL.getIpqualityscoreScore()+ virustotalModel.getVirustotalScore();
+    int sumAllScores = providedURL.getIpqualityscoreScore()+ virustotalModel.getVirustotalScore()+ exerraModel.getExerraScore();
     // SET GENERAL SCORE
-    providedURL.setUrlGeneralScore(sumAllScores/2);
+    providedURL.setUrlGeneralScore(sumAllScores/3);
 }
 }
