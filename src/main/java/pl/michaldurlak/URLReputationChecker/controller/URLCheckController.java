@@ -2,7 +2,9 @@ package pl.michaldurlak.URLReputationChecker.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import pl.michaldurlak.URLReputationChecker.model.ExerraModel;
 import pl.michaldurlak.URLReputationChecker.model.URLModel;
+import pl.michaldurlak.URLReputationChecker.service.ExerraService;
 import pl.michaldurlak.URLReputationChecker.service.IpqualityscoreService;
 import pl.michaldurlak.URLReputationChecker.service.VirustotalService;
 
@@ -20,6 +22,8 @@ public class URLCheckController {
 //        String valueTest = virustotalService.getFullResultOfProvidedSite().toString();
 //        return valueTest;
 //    }
+// scam -> buxquick.com
+
 
 
 }

@@ -46,7 +46,7 @@
 						  </thead>
 <!--			-->
 						  <tbody>
-<!--FIRST RECORD-->
+<!--FIRST RECORD Ipqualityscore-->
 						    <tr>
 						      <th scope="row">1</th>
 								<td> <span th:utext="${urlModel.isSecureByIpqualityscoreScore}"> </span></td>
@@ -54,7 +54,7 @@
 								<td> <span th:utext="${urlModel.ipqualityscoreScore}"> </span>  pkt</td>
 						    </tr>
 <!--			-->
-<!--SECOND RECORD-->
+<!--SECOND RECORD virustotal-->
 						    <tr>
 						      <th scope="row">2</th>
 								<td> <span th:utext="${virustotalModel.isSecureByVirustotal}"> </span></td>
@@ -62,9 +62,17 @@
 								<td> <span th:utext="${virustotalModel.virustotalScore}"> </span>  pkt</td>
 						    </tr>
 <!--			-->
-<!--THIRD RECORD (SUM UP)-->
+<!--THIRD RECORD exerra-->
 						    <tr>
 						      <th scope="row">3</th>
+								<td> <span th:utext="${exerraModel.isScam}"> </span></td>
+								<td><a href="https://rapidapi.com/Amiichu/api/exerra-phishing-check"  class="btn btn-link" >exerra</a></td>
+								<td> <span th:utext="${exerraModel.exerraScore}"> </span>  pkt</td>
+						    </tr>
+<!--			-->
+<!--FOURTH RECORD (SUM UP)-->
+						    <tr>
+						      <th scope="row">4</th>
 								 <td colspan="3" class='summary'> ŚREDNIA ILOŚĆ PUNKTÓW: <span th:utext="${urlModel.urlGeneralScore}"> </span>  </td>
 						    </tr>
 <!--			-->
