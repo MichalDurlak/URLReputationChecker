@@ -59,26 +59,47 @@ public class PhishermanService {
 
         // info
 
+
+
         JSONObject tempJSONInfo = new JSONObject(phishermanModel.getInfoResultJSON());
         JSONObject tempJSONInfoProvidedSite = tempJSONInfo.getJSONObject(providedSite);
-        JSONObject tempJSONInfoDetails = tempJSONInfoProvidedSite.getJSONObject("details");
-        JSONObject tempJSONInfoCountry = tempJSONInfoDetails.getJSONObject("country");
+
+        try{
+
+            JSONObject tempJSONInfoDetails = tempJSONInfoProvidedSite.getJSONObject("details");
+            JSONObject tempJSONInfoCountry = tempJSONInfoDetails.getJSONObject("country");
 
             // json -> providedSite
-        phishermanModel.setStatusInfo(tempJSONInfoProvidedSite.getString("status"));
-        phishermanModel.setVerifiedPhishInfo(String.valueOf(tempJSONInfoProvidedSite.getBoolean("verifiedPhish")));
-        phishermanModel.setClassificationInfo(tempJSONInfoProvidedSite.getString("classification"));
-        phishermanModel.setFirstSeenInfo(tempJSONInfoProvidedSite.getString("firstSeen"));
-        phishermanModel.setLastCheckInfo(tempJSONInfoProvidedSite.getString("lastChecked"));
-        phishermanModel.setLastSeenInfo(tempJSONInfoProvidedSite.getString("lastSeen"));
-        phishermanModel.setPhishCaughtInfo(String.valueOf(tempJSONInfoProvidedSite.getInt("phishCaught")));
+            phishermanModel.setStatusInfo(tempJSONInfoProvidedSite.getString("status"));
+            phishermanModel.setVerifiedPhishInfo(String.valueOf(tempJSONInfoProvidedSite.getBoolean("verifiedPhish")));
+            phishermanModel.setClassificationInfo(tempJSONInfoProvidedSite.getString("classification"));
+            phishermanModel.setFirstSeenInfo(tempJSONInfoProvidedSite.getString("firstSeen"));
+            phishermanModel.setLastCheckInfo(tempJSONInfoProvidedSite.getString("lastChecked"));
+            phishermanModel.setLastSeenInfo(tempJSONInfoProvidedSite.getString("lastSeen"));
+            phishermanModel.setPhishCaughtInfo(String.valueOf(tempJSONInfoProvidedSite.getInt("phishCaught")));
 
             // json -> details
-        phishermanModel.setWebsiteScreenshotInfo(tempJSONInfoDetails.getString("websiteScreenshot"));
-        phishermanModel.setIp_addressInfo(tempJSONInfoDetails.getString("ip_address"));
+            phishermanModel.setWebsiteScreenshotInfo(tempJSONInfoDetails.getString("websiteScreenshot"));
+            phishermanModel.setIp_addressInfo(tempJSONInfoDetails.getString("ip_address"));
 
             // json -> country
-        phishermanModel.setCountry_nameInfo(tempJSONInfoCountry.getString("name"));
+            phishermanModel.setCountry_nameInfo(tempJSONInfoCountry.getString("name"));
+
+        } catch (Exception e){
+            // json -> providedSite
+            phishermanModel.setStatusInfo("BRAK INFORMACJI");
+            phishermanModel.setVerifiedPhishInfo("BRAK INFORMACJI");
+            phishermanModel.setClassificationInfo("BRAK INFORMACJI");
+            phishermanModel.setFirstSeenInfo("BRAK INFORMACJI");
+            phishermanModel.setLastCheckInfo("BRAK INFORMACJI");
+            phishermanModel.setLastSeenInfo("BRAK INFORMACJI");
+            phishermanModel.setPhishCaughtInfo("BRAK INFORMACJI");
+            phishermanModel.setWebsiteScreenshotInfo("BRAK INFORMACJI");
+            phishermanModel.setIp_addressInfo("BRAK INFORMACJI");
+            phishermanModel.setCountry_nameInfo("BRAK INFORMACJI");
+
+        }
+
 
     }
 
