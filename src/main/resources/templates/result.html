@@ -70,9 +70,17 @@
 								<td> <span th:utext="${exerraModel.exerraScore}"> </span>  pkt</td>
 						    </tr>
 <!--			-->
-<!--FOURTH RECORD (SUM UP)-->
+<!--FOURTH RECORD phisherman-->
+							<tr>
+								<th scope="row">4</th>
+								<td> <span th:utext="${phishermanModel.phishermanIsSecure}"> </span></td>
+								<td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#phishermanModal">phisherman.gg</button></td>
+								<td> <span th:utext="${phishermanModel.phishermanScore}"> </span>  pkt</td>
+							</tr>
+<!--			-->
+<!--FIFTH RECORD (SUM UP)-->
 						    <tr>
-						      <th scope="row">4</th>
+						      <th scope="row">5</th>
 								 <td colspan="3" class='summary'> ŚREDNIA ILOŚĆ PUNKTÓW: <span th:utext="${urlModel.urlGeneralScore}"> </span>  </td>
 						    </tr>
 <!--			-->
@@ -152,6 +160,44 @@
 						<a th:href="${virustotalModel.linkToResultsSite}"> Link do skanowania </a> <br/>
 						Wyników skanowania -> <b><span th:utext="${virustotalModel.totalResults}"> </span> </b> <br/>
 						Ilośc potencjalnie znalezionych problemów -> <b><span th:utext="${virustotalModel.positives}"> </span> </b> <br/>
+
+					</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- Central Modal Medium -->
+
+		<!-- Phisherman.gg MODAL -->
+		<div class="modal" id="phishermanModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Wyniki ze strony: <b>phisherman.gg</b></h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body">
+
+<!--						<a th:href="${virustotalModel.linkToResultsSite}"> Link do skanowania </a> <br/>-->
+						Status -> <b><span th:utext="${phishermanModel.statusInfo}"> </span> </b> <br/>
+						Zweryfikowana przez phisherman -> <b><span th:utext="${phishermanModel.verifiedPhishInfo}"> </span> </b> <br/>
+						Kategoria -> <b><span th:utext="${phishermanModel.classificationInfo}"> </span> </b> <br/>
+						Pierwszy raz widziana -> <b><span th:utext="${phishermanModel.firstSeenInfo}"> </span> </b> <br/>
+						Ostanio sprawdzone -> <b><span th:utext="${phishermanModel.lastCheckInfo}"> </span> </b> <br/>
+						Ostatnio widziana -> <b><span th:utext="${phishermanModel.lastSeenInfo}"> </span> </b> <br/>
+						phishCaught -> <b><span th:utext="${phishermanModel.phishCaughtInfo}"> </span> </b> <br/>
+						<a th:href="${phishermanModel.websiteScreenshotInfo}"> Link do screenshota strony </a> <br/>
+						Ip Address -> <b><span th:utext="${phishermanModel.ip_addressInfo}"> </span> </b> <br/>
+						Nazwa kraju -> <b><span th:utext="${phishermanModel.country_nameInfo}"> </span> </b> <br/>
 
 					</div>
 

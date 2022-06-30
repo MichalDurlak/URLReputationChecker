@@ -17,14 +17,14 @@ public class ExerraService {
 
 
     public void getResultExerra(String urlProvided, ExerraModel exerraModel) {
-        System.out.println(urlProvided);
+//        System.out.println(urlProvided);
         String response = Unirest.get(URL_exxeraservice+urlProvided)
                 .header("X-RapidAPI-Key", API_exxeraservice)
                 .header("X-RapidAPI-Host", "exerra-phishing-check.p.rapidapi.com")
                 .asString()
                 .getBody();
 
-        System.out.println(response);
+//        System.out.println(response);
 
         exerraModel.setResultsJSON(response);
 

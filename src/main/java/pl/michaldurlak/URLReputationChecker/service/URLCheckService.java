@@ -1,17 +1,14 @@
 package pl.michaldurlak.URLReputationChecker.service;
 
 import org.springframework.stereotype.Service;
-import pl.michaldurlak.URLReputationChecker.model.ExerraModel;
-import pl.michaldurlak.URLReputationChecker.model.IpqualityscoreModel;
-import pl.michaldurlak.URLReputationChecker.model.URLModel;
-import pl.michaldurlak.URLReputationChecker.model.VirustotalModel;
+import pl.michaldurlak.URLReputationChecker.model.*;
 
 import java.io.IOException;
 
 @Service
 public class URLCheckService {
 
-public static void getAllReputation(URLModel providedURL, IpqualityscoreModel ipqualityscoreModel, VirustotalModel virustotalModel, ExerraModel exerraModel) throws IOException {
+public static void getAllReputation(URLModel providedURL, IpqualityscoreModel ipqualityscoreModel, VirustotalModel virustotalModel, ExerraModel exerraModel, PhishermanModel phishermanModel) throws IOException {
 
 
 
@@ -48,10 +45,27 @@ public static void getAllReputation(URLModel providedURL, IpqualityscoreModel ip
     exerraService.getResultExerra(providedURL.getUrlLink(),exerraModel);
 
 
+// PHISHERMAN
+    PhishermanService phishermanService = new PhishermanService();
+    phishermanService.setCheckAndInfoResultJSON(providedURL.getOnlyUrlLink(), phishermanModel);
+    phishermanService.setPhishermanCheckModel(providedURL.getOnlyUrlLink(), phishermanModel);
+
+
+
+
+
+
 // SUM UP
     //    GET AVERAGE OF ALL SCORES
     int sumAllScores = providedURL.getIpqualityscoreScore()+ virustotalModel.getVirustotalScore()+ exerraModel.getExerraScore();
+    int numerOfSorcesToDivide = 3;
+
+    if (phishermanModel.getPhishermanScore() != -1){
+        numerOfSorcesToDivide++;
+        sumAllScores += phishermanModel.getPhishermanScore();
+    }
+
     // SET GENERAL SCORE
-    providedURL.setUrlGeneralScore(sumAllScores/3);
+    providedURL.setUrlGeneralScore(sumAllScores/numerOfSorcesToDivide);
 }
 }

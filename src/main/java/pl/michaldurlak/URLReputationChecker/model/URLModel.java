@@ -22,6 +22,9 @@ public class URLModel {
     public String getUrlLink() {
         return prefixUrlLink+urlLink;
     }
+    public String getOnlyUrlLink() {
+        return urlLink;
+    }
 
     public void setUrlLink(String urlLink) {
         this.urlLink = urlLink;

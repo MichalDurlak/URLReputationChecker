@@ -54,7 +54,8 @@ public class IpqualityscoreService {
         JSONObject jsonObject = new JSONObject(jsonResultFromSite);
         ipqualityscoreModel.setMessage(jsonObject.getString("message"));
         ipqualityscoreModel.setDomain(jsonObject.getString("domain"));
-        ipqualityscoreModel.setIpAddress(jsonObject.getString("ip_address"));
+//        ipqualityscoreModel.setIpAddress(jsonObject.getString("ip_address"));
+        ipqualityscoreModel.setIpAddress("test");
         ipqualityscoreModel.setCategory(jsonObject.getString("category"));
         ipqualityscoreModel.setStatusCode(jsonObject.getInt("status_code"));
         ipqualityscoreModel.setRiskScore(jsonObject.getInt("risk_score"));

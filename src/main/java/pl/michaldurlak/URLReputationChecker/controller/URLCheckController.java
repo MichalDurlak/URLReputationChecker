@@ -6,6 +6,7 @@ import pl.michaldurlak.URLReputationChecker.model.ExerraModel;
 import pl.michaldurlak.URLReputationChecker.model.URLModel;
 import pl.michaldurlak.URLReputationChecker.service.ExerraService;
 import pl.michaldurlak.URLReputationChecker.service.IpqualityscoreService;
+import pl.michaldurlak.URLReputationChecker.service.PhishermanService;
 import pl.michaldurlak.URLReputationChecker.service.VirustotalService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,6 @@ public class URLCheckController {
 //        return valueTest;
 //    }
 // scam -> buxquick.com
-
 
 
 }
