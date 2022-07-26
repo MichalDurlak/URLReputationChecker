@@ -11,7 +11,8 @@ import pl.michaldurlak.URLReputationChecker.model.ExerraModel;
 public class ExerraService {
 
     // API KEY
-    private static final String API_exxeraservice = ReadSecrets.getProperty("API_EXERRA");
+//    private static final String API_exxeraservice = ReadSecrets.getProperty("API_EXERRA");
+    private static final String API_exxeraservice = System.getenv("API_EXERRA");
     // STATIC URL
     private static final String URL_exxeraservice = "https://exerra-phishing-check.p.rapidapi.com/?url=";
 
