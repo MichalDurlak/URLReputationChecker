@@ -17,7 +17,9 @@ import java.util.ArrayList;
 public class VirustotalService {
 
     // API KEY
-    private static final String API_virustotal = ReadSecrets.getProperty("API_VIRUSTOTAL");
+//    private static final String API_virustotal = ReadSecrets.getProperty("API_VIRUSTOTAL");
+    private static final String API_virustotal = System.getenv("API_VIRUSTOTAL");
+
     // STATIC URL
     private static final String URL_virustotal = "https://www.virustotal.com/vtapi/v2/url/report";
 

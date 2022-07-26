@@ -14,7 +14,8 @@ import org.json.JSONObject;
 public class IpqualityscoreService {
 
     // API KEY
-    private static final String API_ipqualityscoreservice = ReadSecrets.getProperty("API_IPQUALITYSCORE");
+//    private static final String API_ipqualityscoreservice = ReadSecrets.getProperty("API_IPQUALITYSCORE");
+    private static final String API_ipqualityscoreservice = System.getenv("API_IPQUALITYSCORE");
     // STATIC URL
     private static final String URL_ipqualityscoreservice = "https://ipqualityscore.com/api/json/url";
 
