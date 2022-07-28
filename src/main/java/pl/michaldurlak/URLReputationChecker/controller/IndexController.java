@@ -37,8 +37,7 @@ public class IndexController {
             model.addAttribute("phishermanModel",phishermanModel);
 
             // METHOD TO SET ALL VALUES FROM MODEL
-            // temporary off all to check if website will turn on
-//            URLCheckService.getAllReputation(urlModel, ipqualityscoreModel, virustotalModel, exerraModel, phishermanModel);
+            URLCheckService.getAllReputation(urlModel, ipqualityscoreModel, virustotalModel, exerraModel, phishermanModel);
 
 
             // PRINT RESULT FROM IPQUALITYSCORE SITE + PRINT RESULT OF IPQUALITYSCOREMODEL

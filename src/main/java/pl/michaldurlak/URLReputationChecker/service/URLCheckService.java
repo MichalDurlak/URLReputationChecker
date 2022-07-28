@@ -26,48 +26,48 @@ public static void getAllReputation(URLModel providedURL, IpqualityscoreModel ip
 //
 
 
-// VIRSUTOTAL.COM
-    VirustotalService virustotalService = new VirustotalService();
-
-    // download once results for site
-    virustotalModel.setResultsJSON(virustotalService.getFullResultOfProvidedSite(providedURL.getUrlLink()));
-    // set everything model ipqualityscore
-    virustotalService.setModelForVirustotalModel(virustotalModel);
-    // set score for site
-    virustotalService.setVirustotalScore(virustotalModel);
-    //     private int virustotalScore;
-    // set value is safe or not
-    virustotalService.setIsSecureByVirustotalScore(virustotalModel);
-    //    private String isSecureByVirustotal;
-
-
-// EXERRA
-    ExerraService exerraService = new ExerraService();
-    // is provided url scam or not
-    exerraService.getResultExerra(providedURL.getUrlLink(),exerraModel);
-
-
-// PHISHERMAN
-    PhishermanService phishermanService = new PhishermanService();
-    phishermanService.setCheckAndInfoResultJSON(providedURL.getOnlyUrlLink(), phishermanModel);
-    phishermanService.setPhishermanCheckModel(providedURL.getOnlyUrlLink(), phishermanModel);
-
-
-
-
-
-
-// SUM UP
-    //    GET AVERAGE OF ALL SCORES
-    int sumAllScores = providedURL.getIpqualityscoreScore()+ virustotalModel.getVirustotalScore()+ exerraModel.getExerraScore();
-    int numerOfSorcesToDivide = 3;
-
-    if (phishermanModel.getPhishermanScore() != -1){
-        numerOfSorcesToDivide++;
-        sumAllScores += phishermanModel.getPhishermanScore();
-    }
-
-    // SET GENERAL SCORE
-    providedURL.setUrlGeneralScore(sumAllScores/numerOfSorcesToDivide);
+//// VIRSUTOTAL.COM
+//    VirustotalService virustotalService = new VirustotalService();
+//
+//    // download once results for site
+//    virustotalModel.setResultsJSON(virustotalService.getFullResultOfProvidedSite(providedURL.getUrlLink()));
+//    // set everything model ipqualityscore
+//    virustotalService.setModelForVirustotalModel(virustotalModel);
+//    // set score for site
+//    virustotalService.setVirustotalScore(virustotalModel);
+//    //     private int virustotalScore;
+//    // set value is safe or not
+//    virustotalService.setIsSecureByVirustotalScore(virustotalModel);
+//    //    private String isSecureByVirustotal;
+//
+//
+//// EXERRA
+//    ExerraService exerraService = new ExerraService();
+//    // is provided url scam or not
+//    exerraService.getResultExerra(providedURL.getUrlLink(),exerraModel);
+//
+//
+//// PHISHERMAN
+//    PhishermanService phishermanService = new PhishermanService();
+//    phishermanService.setCheckAndInfoResultJSON(providedURL.getOnlyUrlLink(), phishermanModel);
+//    phishermanService.setPhishermanCheckModel(providedURL.getOnlyUrlLink(), phishermanModel);
+//
+//
+//
+//
+//
+//
+//// SUM UP
+//    //    GET AVERAGE OF ALL SCORES
+//    int sumAllScores = providedURL.getIpqualityscoreScore()+ virustotalModel.getVirustotalScore()+ exerraModel.getExerraScore();
+//    int numerOfSorcesToDivide = 3;
+//
+//    if (phishermanModel.getPhishermanScore() != -1){
+//        numerOfSorcesToDivide++;
+//        sumAllScores += phishermanModel.getPhishermanScore();
+//    }
+//
+//    // SET GENERAL SCORE
+//    providedURL.setUrlGeneralScore(sumAllScores/numerOfSorcesToDivide);
 }
 }
