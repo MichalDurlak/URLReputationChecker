@@ -13,6 +13,8 @@ public class PhishermanService {
 
     // API KEY
     private static final String API_phisherman = ReadSecrets.getProperty("API_PHISHERMAN");
+//    private static final String API_phisherman = System.getenv("API_PHISHERMAN");
+
     // STATIC URL
     private static final String URL_phishermanCheck = "https://api.phisherman.gg/v2/domains/check/";
     private static final String URL_phishermanInfo = "https://api.phisherman.gg/v2/domains/info/";
@@ -35,7 +37,7 @@ public class PhishermanService {
                 .asString()
                 .getBody();
 
-        System.out.println("Tuuuuutaj" + responseForInfo);
+//        System.out.println("Tuuuuutaj" + responseForInfo);
 
         phishermanModel.setCheckResultJSON(responseForCheck);
         phishermanModel.setInfoResultJSON(responseForInfo);

@@ -31,7 +31,7 @@ public class IndexController {
                                     PhishermanModel phishermanModel,
                                     Model model) throws IOException {
             model.addAttribute("urlModel",urlModel);
-            model.addAttribute("ipqualityscoreModel",ipqualityscoreModel);
+//            model.addAttribute("ipqualityscoreModel",ipqualityscoreModel);
             model.addAttribute("virustotalModel",virustotalModel);
             model.addAttribute("exerraModel",exerraModel);
             model.addAttribute("phishermanModel",phishermanModel);

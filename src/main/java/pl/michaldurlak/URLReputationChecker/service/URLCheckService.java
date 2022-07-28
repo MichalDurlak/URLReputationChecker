@@ -11,18 +11,20 @@ public class URLCheckService {
 public static void getAllReputation(URLModel providedURL, IpqualityscoreModel ipqualityscoreModel, VirustotalModel virustotalModel, ExerraModel exerraModel, PhishermanModel phishermanModel) throws IOException {
 
 
+//// {"success":false,"message":"You have insufficient credits to make this query. Please contact IPQualityScore support if this error persists."
+////    IPQUALITYSCORE.COM
+//    IpqualityscoreService ipqualityscoreService = new IpqualityscoreService();
+//
+//    // download once results for site
+//    providedURL.setLinkToResultFromIpqualityscoreScore(ipqualityscoreService.getFullResultOfProvidedSite(providedURL.getUrlLink()));
+//    // set score for site
+//    providedURL.setIpqualityscoreScore(ipqualityscoreService.getRiskScoreAndConvertToGeneralScore(providedURL.getLinkToResultFromIpqualityscoreScore()));
+//    // set everything model ipqualityscore
+//    ipqualityscoreService.setModelForIpqualityscoreModel(providedURL.getLinkToResultFromIpqualityscoreScore(),ipqualityscoreModel);
+//    // set value is safe or not
+//    providedURL.setIsSecureByIpqualityscoreScore(ipqualityscoreService.isSafeOrNot(ipqualityscoreModel.getRiskScore()));
+//
 
-//    IPQUALITYSCORE.COM
-    IpqualityscoreService ipqualityscoreService = new IpqualityscoreService();
-
-    // download once results for site
-    providedURL.setLinkToResultFromIpqualityscoreScore(ipqualityscoreService.getFullResultOfProvidedSite(providedURL.getUrlLink()));
-    // set score for site
-    providedURL.setIpqualityscoreScore(ipqualityscoreService.getRiskScoreAndConvertToGeneralScore(providedURL.getLinkToResultFromIpqualityscoreScore()));
-    // set everything model ipqualityscore
-    ipqualityscoreService.setModelForIpqualityscoreModel(providedURL.getLinkToResultFromIpqualityscoreScore(),ipqualityscoreModel);
-    // set value is safe or not
-    providedURL.setIsSecureByIpqualityscoreScore(ipqualityscoreService.isSafeOrNot(ipqualityscoreModel.getRiskScore()));
 
 // VIRSUTOTAL.COM
     VirustotalService virustotalService = new VirustotalService();
@@ -57,7 +59,8 @@ public static void getAllReputation(URLModel providedURL, IpqualityscoreModel ip
 
 // SUM UP
     //    GET AVERAGE OF ALL SCORES
-    int sumAllScores = providedURL.getIpqualityscoreScore()+ virustotalModel.getVirustotalScore()+ exerraModel.getExerraScore();
+//    int sumAllScores = providedURL.getIpqualityscoreScore()+ virustotalModel.getVirustotalScore()+ exerraModel.getExerraScore();
+    int sumAllScores = virustotalModel.getVirustotalScore()+ exerraModel.getExerraScore();
     int numerOfSorcesToDivide = 3;
 
     if (phishermanModel.getPhishermanScore() != -1){
